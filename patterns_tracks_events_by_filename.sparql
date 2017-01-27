@@ -1,0 +1,11 @@
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX mid: <http://example.org/midi/>
+
+SELECT ?filename ?pattern ?track ?event
+WHERE
+{
+?pattern prov:wasDerivedFrom ?filename .
+?pattern mid:hasTrack ?track.
+?track mid:hasEvent ?event
+FILTER (regex(?filename, "tomb raider", "i"))
+} GROUP BY ?pattern ?track ?event
