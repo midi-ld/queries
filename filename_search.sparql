@@ -1,7 +1,7 @@
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX mid: <http://example.org/midi/>
 
-SELECT ?filename ?pattern ?track ?event
+SELECT ?filename ?pattern
 WHERE
 {
 ?pattern prov:wasDerivedFrom ?filename .
