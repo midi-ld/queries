@@ -5,5 +5,5 @@ SELECT ?filename ?pattern
 WHERE
 {
 ?pattern prov:wasDerivedFrom ?filename .
-FILTER (regex(?filename, "stairway to heaven", "i"))
+FILTER (regex(?filename, ?_query, "i"))
 }

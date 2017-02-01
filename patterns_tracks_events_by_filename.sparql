@@ -7,5 +7,5 @@ WHERE
 ?pattern prov:wasDerivedFrom ?filename .
 ?pattern mid:hasTrack ?track.
 ?track mid:hasEvent ?event
-FILTER (regex(?filename, "tomb raider", "i"))
+FILTER (regex(?filename, ?_query, "i"))
 } GROUP BY ?pattern ?track ?event
