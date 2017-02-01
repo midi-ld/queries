@@ -1,3 +1,6 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Get patterns, tracks and events by original file name
+
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX mid: <http://example.org/midi/>
 
