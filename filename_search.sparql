@@ -4,9 +4,9 @@
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX mid: <http://example.org/midi/>
 
-SELECT ?filename ?pattern
+SELECT ?wasDerivedFrom ?MIDIpiece
 WHERE
 {
-?pattern prov:wasDerivedFrom ?filename .
-FILTER (regex(?filename, ?_query, "i"))
+?MIDIpiece prov:wasDerivedFrom ?wasDerivedFrom .
+FILTER (regex(?wasDerivedFrom, ?_query, "i"))
 }
