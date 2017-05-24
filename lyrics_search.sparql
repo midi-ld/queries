@@ -1,0 +1,11 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Search MIDI patterns by their lyrics
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT ?filename ?pattern WHERE {
+  ?pattern prov:wasDerivedFrom ?filename .
+  ?pattern midi:lyrics ?lyrics .
+  FILTER (regex(?lyrics, ?_query, "i"))
+}
