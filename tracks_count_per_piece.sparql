@@ -1,0 +1,10 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: MIDI tracks per piece
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT ?pattern COUNT(?track) WHERE {
+  ?pattern a midi:Pattern .
+  ?pattern midi:hasTrack ?track .
+} GROUP BY ?pattern

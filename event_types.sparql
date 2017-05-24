@@ -1,0 +1,11 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Types of MIDI events in the dataset
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT DISTINCT(?type) WHERE {
+  ?pattern midi:hasTrack ?track .
+  ?track midi:hasEvent ?event .
+  ?event a ?type .
+}

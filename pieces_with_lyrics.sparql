@@ -1,0 +1,10 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: MIDI patterns containing lyrics
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT * WHERE {
+  ?pattern a midi:Pattern ;
+  ?pattern midi:lyrics ?lyrics .
+} GROUP BY ?pattern

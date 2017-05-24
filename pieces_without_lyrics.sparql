@@ -1,0 +1,10 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: MIDI patterns that do not contain lyrics
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT * WHERE {
+  ?pattern a midi:Pattern .
+  FILTER NOT EXISTS { ?pattern midi:lyrics ?lyrics . }
+}

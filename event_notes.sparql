@@ -1,0 +1,9 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: MIDI Note On events and their notes
+
+SELECT ?pattern ?note WHERE {
+  ?pattern midi:hasTrack ?track .
+  ?track midi:hasEvent ?event .
+  ?event a midi:NoteOnEvent .
+  ?event midi:note ?note .
+} GROUP BY ?event ?note
