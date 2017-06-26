@@ -4,11 +4,11 @@
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX mid: <http://purl.org/midi-ld/midi#>
 
-SELECT DISTINCT ?pattern ?filename
+SELECT DISTINCT ?MIDIpiece ?filename
 WHERE {
-?pattern prov:wasDerivedFrom ?filename .
-?pattern mid:hasTrack ?track .
-?pattern mid:resolution ?__resolution_integer .
+?MIDIpiece prov:wasDerivedFrom ?filename .
+?MIDIpiece mid:hasTrack ?track .
+?MIDIpiece mid:resolution ?__resolution_integer .
 ?track mid:hasEvent ?timesignatureevent .
 ?timesignatureevent a mid:TimeSignatureEvent .
 ?timesignatureevent mid:denominator ?__denominator_integer .
