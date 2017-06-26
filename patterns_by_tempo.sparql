@@ -8,12 +8,12 @@ SELECT DISTINCT ?pattern ?filename
 WHERE {
 ?pattern prov:wasDerivedFrom ?filename .
 ?pattern mid:hasTrack ?track .
-?pattern mid:resolution ?__resolution .
+?pattern mid:resolution ?__resolution_integer .
 ?track mid:hasEvent ?timesignatureevent .
 ?timesignatureevent a mid:TimeSignatureEvent .
-?timesignatureevent mid:denominator ?__denominator .
-?timesignatureevent mid:metronome ?__metronome .
-?timesignatureevent mid:numerator ?__numerator .
-?timesignatureevent mid:thirtyseconds ?__thirtyseconds .
+?timesignatureevent mid:denominator ?__denominator_integer .
+?timesignatureevent mid:metronome ?__metronome_integer .
+?timesignatureevent mid:numerator ?__numerator_integer .
+?timesignatureevent mid:thirtyseconds ?__thirtyseconds_integer .
 FILTER (regex(?filename, ?_query, "i")) . 
 }
