@@ -1,0 +1,16 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Get tempo values for the supplied pattern URI
+
+PREFIX mid: <http://purl.org/midi-ld/midi#>
+
+SELECT *
+WHERE {
+?_pattern_iri mid:hasTrack ?track .
+?_pattern_iri mid:resolution ?resolution .
+?track mid:hasEvent ?timesignatureevent .
+?timesignatureevent a mid:TimeSignatureEvent .
+?timesignatureevent mid:denominator ?denominator .
+?timesignatureevent mid:metronome ?metronome .
+?timesignatureevent mid:numerator ?numerator .
+?timesignatureevent mid:thirtyseconds ?thirtyseconds .
+}
