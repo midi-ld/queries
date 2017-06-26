@@ -15,5 +15,5 @@ WHERE {
 ?timesignatureevent mid:metronome ?__metronome .
 ?timesignatureevent mid:numerator ?__numerator .
 ?timesignatureevent mid:thirtyseconds ?__thirtyseconds .
-FILTER (regex(?filename, ?__query, "i")) . 
+FILTER (regex(?filename, ?_query, "i")) . 
 }
