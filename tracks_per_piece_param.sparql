@@ -1,9 +1,13 @@
 #+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
-#+ summary: MIDI tracks per piece, parametrized
+#+ summary: MIDI tracks per piece, and their labels, parametrized
 
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX midi: <http://purl.org/midi-ld/midi#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?track WHERE {  
+SELECT ?track ?trackname WHERE {  
   ?_pattern_iri midi:hasTrack ?track .
+  ?track midi:hasEvent ?event .
+  ?event a midi:TrackNameEvent .
+  ?event rdfs:label ?trackname .
 }
