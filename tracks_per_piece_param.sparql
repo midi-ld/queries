@@ -7,7 +7,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?track ?trackname WHERE {  
   ?_pattern_iri midi:hasTrack ?track .
-  ?track midi:hasEvent ?event .
-  ?event a midi:TrackNameEvent .
-  ?event rdfs:label ?trackname .
+  OPTIONAL { 
+    ?track midi:hasEvent ?event .
+    ?event a midi:TrackNameEvent .
+    ?event rdfs:label ?trackname .
+  }
 }
