@@ -1,0 +1,15 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Search MIDI patterns containing tracks with the specified query
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?pattern ?trackname WHERE {
+  ?pattern midi:hasTrack ?track .
+  ?track midi:hasEvent ?event .
+  ?event rdf:type midi:TrackNameEvent .
+  ?event rdfs:label ?trackname .
+  FILTER (regex(?trackname, ?_query, "i"))
+} GROUP BY ?pattern LIMIT 1000
