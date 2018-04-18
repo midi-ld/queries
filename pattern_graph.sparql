@@ -1,0 +1,20 @@
+#+ summary: Get the RDF graph of the specified MIDI pattern URI
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+
+PREFIX mid: <http://purl.org/midi-ld/midi#>
+
+CONSTRUCT {
+  <foo> a mid:Pattern ;
+    mid:resolution ?res ;
+    mid:format ?format .
+  <foo> mid:hasTrack ?track .
+  ?track a mid:Track .
+  ?track mid:hasEvent ?event .
+  ?event ?prop ?val .
+} WHERE { 
+  ?_pattern_uri mid:hasTrack ?track ;
+    mid:resolution ?res ;
+    mid:format ?format .
+  ?track mid:hasEvent ?event .
+  ?event ?prop ?val .
+}
