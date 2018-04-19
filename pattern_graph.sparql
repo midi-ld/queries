@@ -11,8 +11,8 @@ CONSTRUCT {
   ?track a mid:Track .
   ?track mid:hasEvent ?event .
   ?event ?prop ?val .
-} WHERE { 
-  ?_pattern_uri mid:hasTrack ?track ;
+} WHERE {
+  ?_pattern_iri mid:hasTrack ?track ;
     mid:resolution ?res ;
     mid:format ?format .
   ?track mid:hasEvent ?event .
