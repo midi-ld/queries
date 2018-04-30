@@ -1,5 +1,5 @@
 #+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
-#+ method: put
+#+ method: post
 #+ summary: Insert a new MIDI pattern
 
 INSERT DATA { GRAPH ?_g_iri { <s> <p> <o> }}
