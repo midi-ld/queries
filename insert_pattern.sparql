@@ -2,4 +2,4 @@
 #+ method: post
 #+ summary: Insert a new MIDI pattern
 
-INSERT DATA { GRAPH ?_g_iri { <s> <p> <o> }}
+INSERT DATA { GRAPH ?_g_iri { ?_data [] []}}
