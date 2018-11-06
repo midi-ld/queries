@@ -1,0 +1,11 @@
+#+ endpoint: http://virtuoso-midi.amp.ops.labs.vu.nl/sparql
+#+ summary: Number of MIDI events per track and piece
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX midi: <http://purl.org/midi-ld/midi#>
+
+SELECT ?pattern ?track (COUNT(?event) AS ?n_events) WHERE {
+  ?pattern a midi:Pattern .
+  ?pattern midi:hasTrack ?track .
+  ?track midi:hasEvent ?event .
+} GROUP BY ?pattern ?track
