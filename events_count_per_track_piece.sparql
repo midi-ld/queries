@@ -9,3 +9,4 @@ SELECT ?pattern ?track (COUNT(?event) AS ?n_events) WHERE {
   ?pattern midi:hasTrack ?track .
   ?track midi:hasEvent ?event .
 } GROUP BY ?pattern ?track
+ORDER BY DESC(?n_events)
